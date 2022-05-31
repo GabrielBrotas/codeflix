@@ -3,18 +3,27 @@
 **Remote Container**
 requirements:
 - Extensions: Remote Container
+
 ```bash
 # 1 - open settings (cmd + p)
 #   >Remote-Containers: Open Folder in Container...
 #   >Click OK
 #   >From 'docker-compose.yaml'
 # Obs. After the first setup we can rebuild by using >Remote-Container: Rebuild and Reopen in Container
+
+# working with pdm to manage dependencies
+pdm init # initializat pdm
+pdm add autopep8 # add library
+pdm remove autopep8 # remove library
+pdm add autopep8 --dev # add library on dev environment
+
+autopep8 --in-place --recursive ./src/ # format itens
+
 ```
 
 **Tests**
 ```bash
-# python3 -m unittest <test path>
-python3 -m unittest src.category.tests.unit.domain.test_unit_entities
+python3 -m unittest discover ./src/
 ```
 
 # Layers

@@ -1,7 +1,9 @@
-from datetime import date, datetime
-from src.category.domain.entities import Category
-from dataclasses import is_dataclass
+# pylint: disable=unexpected-keyword-arg
+from datetime import datetime
+from dataclasses import FrozenInstanceError, is_dataclass
 import unittest  # another option = pytest;
+from category.domain.entities import Category
+
 
 class TestCategoryUnit(unittest.TestCase):
 
@@ -10,7 +12,7 @@ class TestCategoryUnit(unittest.TestCase):
 
     def test_constructor(self):
         default_category = Category(name="Movie")
-        
+
         self.assertEqual(default_category.name, "Movie")
         self.assertEqual(default_category.description, None)
         self.assertEqual(default_category.is_active, True)
@@ -18,9 +20,9 @@ class TestCategoryUnit(unittest.TestCase):
 
         created_at = datetime.now()
         category_with_props = Category(
-            name="Movie", 
-            description="Some description", 
-            is_active= True, 
+            name="Movie",
+            description="Some description",
+            is_active=True,
             created_at=created_at
         )
 
@@ -30,12 +32,17 @@ class TestCategoryUnit(unittest.TestCase):
         self.assertEqual(category_with_props.created_at, created_at)
         self.assertIsInstance(category_with_props.created_at, datetime)
 
-    def test_if_created_at_is_generated_in_constructor(self):   
+    def test_if_created_at_is_generated_in_constructor(self):
         category1 = Category(name="Movie")
         category2 = Category(name="Movie")
 
         self.assertNotEqual(category1, category2)
         self.assertNotEqual(
-            category1.created_at.timestamp(), 
+            category1.created_at.timestamp(),
             category2.created_at.timestamp()
         )
+
+    def test_if_is_immutable(self):
+        with self.assertRaises(FrozenInstanceError):
+            category = Category(name="Movie")
+            category.name = "Movie Updated"

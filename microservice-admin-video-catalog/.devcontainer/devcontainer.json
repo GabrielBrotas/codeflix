@@ -21,7 +21,8 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.defaultProfile.linux": "bash"
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"python.pythonPath": "/usr/local/bin/python"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -29,7 +30,8 @@
 		"ms-python.python",
 		"sourcery.sourcery",
 		"eamodio.gitlens",
-		"sonarsource.sonarlint-vscode"
+		"sonarsource.sonarlint-vscode",
+		"bungcip.better-toml"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
