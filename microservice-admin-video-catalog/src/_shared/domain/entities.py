@@ -1,9 +1,10 @@
 from abc import ABC
 from dataclasses import dataclass, field, asdict
+from typing import Any
 from _shared.domain.value_objects import UniqueEntityId
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class Entity(ABC):
 
     # pylint: disable=unnecessary-lambda
@@ -23,3 +24,7 @@ class Entity(ABC):
         entity_dict['id'] = self.id  # and add the id in the string format
 
         return entity_dict
+
+    # make it easy to update an value
+    def _set(self, name: str, value: Any):
+        object.__setattr__(self, name, value)

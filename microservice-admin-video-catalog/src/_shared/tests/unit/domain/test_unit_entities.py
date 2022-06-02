@@ -1,4 +1,4 @@
-# pylint: disable=unexpected-keyword-arg
+# pylint: disable=unexpected-keyword-arg,protected-access
 from dataclasses import dataclass, is_dataclass
 import unittest
 
@@ -43,3 +43,14 @@ class TestEntityUnit(unittest.TestCase):
             'prop1': 'value1',
             'prop2': 'value2'
         })
+
+    def test_set_method(self):
+        entity = StubEntity(
+            prop1="value1",
+            prop2="value2"
+        )
+
+        entity._set("prop1", "some other value")
+
+        self.assertEqual(entity.prop1, "some other value")
+        

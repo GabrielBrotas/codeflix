@@ -6,7 +6,7 @@ import uuid
 from _shared.domain.exceptions import InvalidUUIDException
 
 # ABC - Abstract Base Class
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class ValueObject(ABC):
     def __str__(self) -> str:
         fields_name = [field.name for field in fields(self)]
@@ -19,7 +19,7 @@ class ValueObject(ABC):
 # We need this because according to DDD an VO must be immutable
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class UniqueEntityId(ValueObject):
 
     # pylint: disable=invalid-name,unnecessary-lambda
