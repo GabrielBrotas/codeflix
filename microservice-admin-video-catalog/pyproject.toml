@@ -1,6 +1,6 @@
 [project]
 name = "Admin Microservice Videos Python"
-version = ".0.0"
+version = "0.0.0"
 description = ""
 authors = [
     {name = "Gabriel Brotas", email = "gabrielbrotas22@gmail.com"},
@@ -15,8 +15,12 @@ license = {text = "MIT"}
 dev = [
     "autopep8>=1.6.0",
     "pylint>=2.13.9",
-    "pytest>=7.1.2",
+    "pytest>=7.1.2"
 ]
+[tool.pdm.scripts]
+test = "pytest --ignore __pypackages__"
+pep8 = "autopep8 --in-place --recursive ./src/"
+pylint = "pylint ./src"
 
 [build-system]
 requires = ["pdm-pep517>=0.12.0"]

@@ -6,7 +6,7 @@ RUN apt update && apt install -y --no-install-recommends \
 
 RUN useradd -ms /bin/bash python
 
-RUN pip install pdm
+RUN pip install pdm pdm-venv
 
 USER python
 

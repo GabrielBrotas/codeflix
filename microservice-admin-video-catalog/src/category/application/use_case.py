@@ -1,2 +1,0 @@
-class CreateCategoryUseCase:
-    pass

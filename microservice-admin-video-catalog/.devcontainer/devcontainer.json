@@ -31,7 +31,8 @@
 		"sourcery.sourcery",
 		"eamodio.gitlens",
 		"sonarsource.sonarlint-vscode",
-		"bungcip.better-toml"
+		"bungcip.better-toml",
+		"jebbs.plantuml"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

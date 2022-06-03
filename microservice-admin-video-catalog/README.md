@@ -17,26 +17,32 @@ pdm add autopep8 # add library
 pdm remove autopep8 # remove library
 pdm add autopep8 --dev # add library on dev environment
 
+# working with venv
+pdm venv create --name venv 3.10
+eval $(pdm venv activate venv) # activate
 autopep8 --in-place --recursive ./src/ # format itens
 
 ```
 
 **Tests**
 ```bash
-python3 -m unittest discover ./src/
+pdm run test
 ```
 
 # Layers
 **The Clean Architecture**
 
 ## Entities - Nivel 0
+Enterprise Business Rules
 Responsible to validate the business rules.
 These entities are independent of framework/technology, is an object that will help us to ensure our application will behave in the properly way;
 These entities will contain our business rules;
 *This is not anemic entity*
 
 ## Use Cases - Nivel 1
+Applicaions Business Rules
 Will be responsible to execute the business rules together with the entities;
+class name = verb + entity => CreateCategory
 
 ## Controllers - Nível 2
 Will be responsible to call the use cases, if the controller change the protocol (http, grpc, graphql,...) or the client (web,mobile) these change shouldn't affect our use cases and our entities;
@@ -84,16 +90,16 @@ ex: Address
 an object value must be immutable and equal to another OV if has the same values
 
 ### Repository
-Responsible for persist the entity data on a database
+Responsible for persist the entity on a database
 - stateless
-
+- infra
 
 ## TO DO
-- [ ] Create docker environment (Docker & IDE)
-- [ ] Create category entity
-- [ ] Create entity tests
-- [ ] Create use cases and repositories
-- [ ] Create use cases tests
+- [x] Create docker environment (Docker & IDE)
+- [x] Create category entity
+- [x] Create entity tests
+- [x] Create use cases and repositories
+- [x] Create use cases tests
 _____ Replicate to others entities (Genre, Cast member,...)
 
 
