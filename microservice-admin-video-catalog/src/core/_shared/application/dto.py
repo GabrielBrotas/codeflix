@@ -1,7 +1,7 @@
 
 from dataclasses import dataclass
 from typing import Generic, List, Optional, TypeVar
-from _shared.domain.repositories import SearchResult
+from core._shared.domain.repositories import SearchResult
 
 GenericFilter = TypeVar('GenericFilter')
 GenericItem = TypeVar('GenericItem')

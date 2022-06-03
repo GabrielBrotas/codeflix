@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Any, Optional
-from _shared.domain.exceptions import ValidationException
+from core._shared.domain.exceptions import ValidationException
 
 
 @dataclass(frozen=True, slots=True)

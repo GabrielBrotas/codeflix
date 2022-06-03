@@ -3,7 +3,7 @@ from abc import ABC
 from dataclasses import dataclass, field, fields
 import json
 import uuid
-from _shared.domain.exceptions import InvalidUUIDException
+from core._shared.domain.exceptions import InvalidUUIDException
 
 # ABC - Abstract Base Class
 

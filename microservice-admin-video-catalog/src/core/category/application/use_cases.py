@@ -1,10 +1,10 @@
 # pylint: disable=unexpected-keyword-arg
 from dataclasses import asdict, dataclass
 from typing import Optional
-from _shared.application.use_cases import UseCaseInterface
-from category.domain.entities import Category
-from category.domain.repositories import CategoryRepository
-from _shared.application.dto import (
+from core._shared.application.use_cases import UseCaseInterface
+from core.category.domain.entities import Category
+from core.category.domain.repositories import CategoryRepository
+from core._shared.application.dto import (
     PaginationOutputMapper,
     SearchInput, 
     PaginationOutput

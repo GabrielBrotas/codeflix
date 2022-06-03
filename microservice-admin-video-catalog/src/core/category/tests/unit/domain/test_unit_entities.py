@@ -3,7 +3,7 @@ from datetime import datetime
 from dataclasses import FrozenInstanceError, is_dataclass
 import unittest
 from unittest.mock import patch  # another option = pytest;
-from category.domain.entities import Category
+from core.category.domain.entities import Category
 
 
 class TestCategoryUnit(unittest.TestCase):

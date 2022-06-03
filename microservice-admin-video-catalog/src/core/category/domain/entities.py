@@ -3,10 +3,10 @@
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Optional
-from _shared.domain.entities import Entity
-from _shared.domain.exceptions import EntityValidationException
-from _shared.domain.validators import ValidatorRules
-from _shared.domain.notification import Notification
+from core._shared.domain.entities import Entity
+from core._shared.domain.exceptions import EntityValidationException
+from core._shared.domain.validators import ValidatorRules
+from core._shared.domain.notification import Notification
 
 # ? dataclass will help to maitain the class
 # we just have to say the parameters we want and it will automatically create a constructor for us

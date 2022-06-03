@@ -1,5 +1,5 @@
 from abc import ABC
-from _shared.domain.repositories import (
+from core._shared.domain.repositories import (
     SearchParams as DefaultSearchParams,
     SearchResult as DefaultSearchResult,
     SearchableRepositoryInterface
