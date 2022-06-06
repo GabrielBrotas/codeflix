@@ -1,7 +1,7 @@
 from abc import ABC
 from dataclasses import Field, dataclass, field, asdict
 from typing import Any
-from core._shared.domain.value_objects import UniqueEntityId
+from .value_objects import UniqueEntityId
 
 
 @dataclass(frozen=True, slots=True)

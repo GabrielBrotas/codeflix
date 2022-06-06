@@ -4,8 +4,8 @@ from dataclasses import FrozenInstanceError, dataclass, is_dataclass
 import unittest
 from unittest.mock import patch
 import uuid
-from core._shared.domain.exceptions import InvalidUUIDException
-from core._shared.domain.value_objects import UniqueEntityId, ValueObject
+from core._shared.exceptions import InvalidUUIDException
+from core._shared.value_objects import UniqueEntityId, ValueObject
 
 
 @dataclass(frozen=True)

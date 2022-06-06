@@ -1,6 +1,6 @@
 import unittest
 from dataclasses import is_dataclass
-from core._shared.domain.validators import ValidatorRules, ValidationException
+from core._shared.validators import ValidatorRules, ValidationException
 
 
 class TestValidatorRulesUnit(unittest.TestCase):

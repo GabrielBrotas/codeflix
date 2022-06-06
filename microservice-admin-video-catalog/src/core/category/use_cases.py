@@ -1,14 +1,14 @@
 # pylint: disable=unexpected-keyword-arg
 from dataclasses import asdict, dataclass
 from typing import Optional
-from core._shared.application.use_cases import UseCaseInterface
-from core.category.domain.entities import Category
-from core.category.domain.repositories import CategoryRepository
-from core._shared.application.dto import (
+from core._shared.use_cases import UseCaseInterface
+from core._shared.dto import (
     PaginationOutputMapper,
-    SearchInput, 
+    SearchInput,
     PaginationOutput
 )
+from .repositories import CategoryRepository
+from .entities import Category
 from .dto import CategoryOutput, CategoryOutputMapper
 
 
@@ -28,6 +28,10 @@ class CreateCategoryUseCase(UseCaseInterface):
     # DTO
     @dataclass(slots=True, frozen=True)
     class Input:
+        def __post_init__(self):
+            if not self.is_active:
+                object.__setattr__(self, 'is_active', Category.get_field('is_active').default)
+
         name: str
         # get the default values from the entity because it can change
         description: Optional[str] = Category.get_field('description').default

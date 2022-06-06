@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional
-from core.category.domain.entities import Category
+from core.category.entities import Category
 
 
 @dataclass(frozen=True, slots=True)
@@ -24,5 +24,5 @@ class CategoryOutputMapper:
             name=category.name,
             description=category.description,
             is_active=category.is_active,
-            created_at=category.created_at
+            created_at=category.created_at.isoformat()
         )

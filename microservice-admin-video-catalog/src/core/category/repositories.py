@@ -1,5 +1,5 @@
 from abc import ABC
-from core._shared.domain.repositories import (
+from core._shared.repositories import (
     SearchParams as DefaultSearchParams,
     SearchResult as DefaultSearchResult,
     SearchableRepositoryInterface
@@ -7,14 +7,10 @@ from core._shared.domain.repositories import (
 from .entities import Category
 
 # private class
-
-
 class _SearchParams(DefaultSearchParams):
     pass
 
 # private class
-
-
 class _SearchResult(DefaultSearchResult):
     pass
 

@@ -22,6 +22,8 @@ pdm venv create --name venv 3.10
 eval $(pdm venv activate venv) # activate
 autopep8 --in-place --recursive ./src/ # format itens
 
+## running server
+uvicorn src.infraestructure.api.server:app --reload
 ```
 
 **Tests**

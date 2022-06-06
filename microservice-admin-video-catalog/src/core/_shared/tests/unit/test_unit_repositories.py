@@ -2,8 +2,8 @@
 from dataclasses import dataclass
 from typing import List, Optional
 import unittest
-from core._shared.domain.exceptions import NotFoundException
-from core._shared.domain.repositories import (
+from core._shared.exceptions import NotFoundException
+from core._shared.repositories import (
     GenericEntity,
     GenericFilter,
     InMemoryRepository,
@@ -13,7 +13,7 @@ from core._shared.domain.repositories import (
     SearchResult,
     SearchableRepositoryInterface
 )
-from core._shared.domain.entities import Entity
+from core._shared.entities import Entity
 
 
 class TestRepositoryInterfaceUnit(unittest.TestCase):

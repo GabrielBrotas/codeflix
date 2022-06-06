@@ -1,7 +1,7 @@
 
 import unittest
 
-from core._shared.domain.notification import Notification
+from core._shared.notification import Notification
 
 ERROR_MSG_1 = 'error 1'
 ERROR_MSG_2 = 'error 2'

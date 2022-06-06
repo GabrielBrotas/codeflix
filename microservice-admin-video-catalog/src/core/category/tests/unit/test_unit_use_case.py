@@ -3,16 +3,16 @@ from dataclasses import asdict
 from datetime import datetime, timedelta
 import unittest
 from unittest.mock import patch
-from core._shared.domain.exceptions import NotFoundException
-from core._shared.application.use_cases import UseCaseInterface
-from core.category.application.dto import CategoryOutputMapper
-from core.category.application.use_cases import (
+from core._shared.exceptions import NotFoundException
+from core._shared.use_cases import UseCaseInterface
+from core.category.dto import CategoryOutputMapper
+from core.category.use_cases import (
     CreateCategoryUseCase,
     GetCategoryUseCase,
     ListCategoriesUseCase
 )
-from core.category.domain.entities import Category
-from core.category.infra.repositories import CategoryInMemorySearchableRepository
+from core.category.entities import Category
+from infraestructure.category.repository import CategoryInMemorySearchableRepository
 
 
 class TestCreateCategoryUseCaseUnit(unittest.TestCase):

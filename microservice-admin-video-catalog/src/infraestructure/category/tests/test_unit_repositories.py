@@ -1,8 +1,8 @@
 # pylint: disable=unexpected-keyword-arg,protected-access
 import unittest
 from datetime import datetime, timedelta
-from core.category.domain.entities import Category
-from core.category.infra.repositories import CategoryInMemorySearchableRepository
+from core.category.entities import Category
+from infraestructure.category.repository import CategoryInMemorySearchableRepository
 
 
 class TestCategoryInMemoryRepositoryUnit(unittest.TestCase):

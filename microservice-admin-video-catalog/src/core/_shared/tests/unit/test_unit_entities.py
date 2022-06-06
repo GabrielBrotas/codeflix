@@ -2,8 +2,8 @@
 from dataclasses import dataclass, is_dataclass
 import unittest
 
-from core._shared.domain.entities import Entity
-from core._shared.domain.value_objects import UniqueEntityId
+from core._shared.entities import Entity
+from core._shared.value_objects import UniqueEntityId
 
 
 @dataclass(frozen=True, kw_only=True)

@@ -3,7 +3,7 @@ from abc import ABC
 from dataclasses import dataclass, field, fields
 import json
 import uuid
-from core._shared.domain.exceptions import InvalidUUIDException
+from .exceptions import InvalidUUIDException
 
 # ABC - Abstract Base Class
 
@@ -24,7 +24,7 @@ class ValueObject(ABC):
 @dataclass(frozen=True, slots=True)
 class UniqueEntityId(ValueObject):
 
-    id: str = field(
+    id: str = field( # pylint: disable=invalid-name
         default_factory= uuid.uuid4
     )
 
