@@ -15,7 +15,7 @@ class _SearchResult(DefaultSearchResult):
     pass
 
 
-class CategoryRepository(
+class CategoryRepositoryInterface(
     SearchableRepositoryInterface[
         Category, _SearchParams, _SearchResult
     ],

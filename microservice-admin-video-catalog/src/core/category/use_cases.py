@@ -7,14 +7,14 @@ from core._shared.dto import (
     SearchInput,
     PaginationOutput
 )
-from .repositories import CategoryRepository
+from .repositories import CategoryRepositoryInterface
 from .entities import Category
 from .dto import CategoryOutput, CategoryOutputMapper
 
 
 @dataclass(slots=True, frozen=True)
 class CreateCategoryUseCase(UseCaseInterface):
-    category_repo: CategoryRepository
+    category_repo: CategoryRepositoryInterface
 
     def execute(self, input_params: 'Input') -> 'Output':
         category = Category(
@@ -44,7 +44,7 @@ class CreateCategoryUseCase(UseCaseInterface):
 
 @dataclass(slots=True, frozen=True)
 class GetCategoryUseCase(UseCaseInterface):
-    category_repo: CategoryRepository
+    category_repo: CategoryRepositoryInterface
 
     def execute(self, input_params: 'Input') -> 'Output':
         category = self.category_repo.find_by_id(
@@ -65,7 +65,7 @@ class GetCategoryUseCase(UseCaseInterface):
 
 @dataclass(slots=True, frozen=True)
 class ListCategoriesUseCase(UseCaseInterface):
-    category_repo: CategoryRepository
+    category_repo: CategoryRepositoryInterface
 
     def execute(self, input_params: 'Input') -> 'Output':
         search_params = self.category_repo.SearchParams(**asdict(input_params))
@@ -74,7 +74,7 @@ class ListCategoriesUseCase(UseCaseInterface):
         )
         return self.__to_output(result)
 
-    def __to_output(self, result: CategoryRepository.SearchResult):
+    def __to_output(self, result: CategoryRepositoryInterface.SearchResult):
         items = list(
             map(CategoryOutputMapper.to_output, result.items)
         )
@@ -97,7 +97,7 @@ class ListCategoriesUseCase(UseCaseInterface):
 
 @dataclass(slots=True, frozen=True)
 class DeleteCategoryUseCase(UseCaseInterface):
-    category_repo: CategoryRepository
+    category_repo: CategoryRepositoryInterface
 
     def execute(self, input_params: 'Input') -> 'Output':
         self.category_repo.delete(entity_id=input_params.id)

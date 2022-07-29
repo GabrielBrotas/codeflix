@@ -45,7 +45,7 @@ class TestCreateCategoryUseCaseUnit(unittest.TestCase):
                 name="test",
                 description=None,
                 is_active=True,
-                created_at=self.category_repo.items[0].created_at,
+                created_at=self.category_repo.items[0].created_at.isoformat(),
             )
             self.assertEqual(asdict(output), asdict(expected_output))
 
@@ -77,7 +77,7 @@ class TestGetCategoryUseCaseUnit(unittest.TestCase):
 
             expected_output = GetCategoryUseCase.Output(
                 id=category.id,
-                created_at=category.created_at,
+                created_at=category.created_at.isoformat(),
                 description=category.description,
                 is_active=category.is_active,
                 name=category.name,

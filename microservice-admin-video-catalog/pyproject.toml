@@ -9,12 +9,16 @@ dependencies = [
     "fastapi>=0.78.0",
     "uvicorn>=0.17.6",
     "pydantic>=1.9.1",
+    "sqlalchemy>=1.4.37",
+    "psycopg2>=2.9.3",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
 [project.optional-dependencies]
 
 [tool.pdm]
+allow_prereleases = true
+
 [tool.pdm.dev-dependencies]
 dev = [
     "autopep8>=1.6.0",

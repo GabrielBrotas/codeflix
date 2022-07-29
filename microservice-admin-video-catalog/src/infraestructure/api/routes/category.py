@@ -3,14 +3,14 @@ from fastapi import APIRouter
 from pydantic import BaseModel # pylint: disable=no-name-in-module
 from core._shared.dto import SearchInput
 from core.category.use_cases import CreateCategoryUseCase, ListCategoriesUseCase
-from infraestructure.category.repository import CategoryInMemorySearchableRepository
+from infraestructure.category.repository import CategoryRepository
 
 categoryRouter = APIRouter(
     prefix='/categories',
     tags=["category"]
 )
 
-category_repo= CategoryInMemorySearchableRepository()
+category_repo = CategoryRepository()
 
 @categoryRouter.get("/")
 async def list_categories():
@@ -33,7 +33,6 @@ class CreateCategoryDTO(BaseModel):
 @categoryRouter.post("/")
 async def create_categories(item: CreateCategoryDTO):
     try:
-        print(f'is active = {item.is_active}')
         cc_input = CreateCategoryUseCase.Input(
             name=item.name,
             description=item.description,

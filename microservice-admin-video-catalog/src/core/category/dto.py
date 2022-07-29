@@ -24,5 +24,5 @@ class CategoryOutputMapper:
             name=category.name,
             description=category.description,
             is_active=category.is_active,
-            created_at=category.created_at.isoformat()
+            created_at=category.created_at.isoformat() if category.created_at else None
         )

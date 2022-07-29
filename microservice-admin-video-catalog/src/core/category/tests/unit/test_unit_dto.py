@@ -1,4 +1,5 @@
 
+from dataclasses import asdict
 from typing import Optional
 import unittest
 
@@ -23,12 +24,12 @@ class TestDtoUnit(unittest.TestCase):
         category = Category(name="Movie")
 
         self.assertEqual(
-            CategoryOutputMapper.to_output(category),
-            CategoryOutput(
+            asdict(CategoryOutputMapper.to_output(category)),
+            asdict(CategoryOutput(
                 id=category.id,
                 name=category.name,
                 description=category.description,
                 is_active=category.is_active,
-                created_at=category.created_at
-            )
+                created_at=category.created_at.isoformat()
+            ))
         )

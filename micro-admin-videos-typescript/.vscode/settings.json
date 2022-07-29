@@ -1,0 +1,7 @@
+{
+    "peacock.remoteColor": "#215732",
+    "conventionalCommits.scopes": [
+        "devcontainer.json",
+        "settings.json"
+    ]
+}
